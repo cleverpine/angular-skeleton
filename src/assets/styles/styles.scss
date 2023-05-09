@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.ds-flex {
+  display: flex;
+}
+
+.wrap-items {
+  flex-wrap: wrap;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.field-label {
+  margin-right: 10px;
+}
+
+.field-value {
+  margin-right: 60px;
+}
+
+@import './colors.scss';
+@import './normalize.scss';
+@import './reset.scss';
+@import './common.scss';
+@import './typography.scss';
+@import './icons.scss';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

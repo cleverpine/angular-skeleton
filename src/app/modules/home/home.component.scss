@@ -1,0 +1,100 @@
+@import "./../../../assets/styles/colors.scss";
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+
+  .tiles {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    .title-wrapper {
+      width: 320px;
+    }
+    ::ng-deep.tile {
+      width: initial;
+      .default,
+      .hover {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .description {
+          padding-bottom: 10px;
+          font-size: 1.4rem;
+          letter-spacing: 0.25px;
+        }
+      }
+
+      .default {
+        .title-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 0;
+          .material-icons {
+            font-size: 30px;
+          }
+        }
+
+        .mobile-header {
+          display: none;
+          color: $layout-dark-color;
+        }
+
+        .desktop {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+
+      .hover {
+        justify-content: start;
+        color: $layout-dark-color;
+        font-size: 1.3rem;
+      }
+
+      .icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .title {
+        font-weight: 800;
+        font-size: 2.4rem;
+        text-align: center;
+        color: $layout-dark-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .home-page {
+    justify-content: flex-start;
+    .tiles {
+      flex-direction: column;
+
+      .title-wrapper {
+        width: initial;
+      }
+      ::ng-deep.tile {
+        .default {
+          align-items: flex-start;
+          .mobile-header {
+            display: block;
+          }
+          .desktop {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

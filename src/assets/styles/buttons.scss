@@ -1,0 +1,40 @@
+@import './colors.scss';
+
+.primary-btn {
+  background-color: $primary-btn-color;
+  color: $white;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: $primary-btn-hover-color;
+  }
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    background-color: $disabled-btn-bg-color;
+    color: $disabled-btn-color;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $disabled-btn-bg-color;
+      color: $disabled-btn-color;
+    }
+  }
+}
+
+.disabled {
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  background-color: $disabled-btn-bg-color;
+  color: $disabled-btn-color;
+  cursor: not-allowed;
+}
