@@ -1,0 +1,32 @@
+@import "../../../assets/styles/colors.scss";
+
+.not-found-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: $background-color;
+  color: $black;
+
+  .not-found-error-message,
+  .not-found-first-error-heading,
+  .not-found-second-error-heading {
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .not-found-error-message {
+    padding: 16px 0;
+    font-size: 3.2rem;
+  }
+
+  .not-found-first-error-heading {
+    font-size: 2rem;
+  }
+
+  .not-found-second-error-heading {
+    margin: 20px 0;
+    font-size: 1.4rem;
+  }
+}

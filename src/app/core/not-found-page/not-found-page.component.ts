@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 
+import { ROUTES } from '../../constants/ROUTES';
+
 @Component({
-  selector: 'app-not-found-page',
+  selector: 'not-found-page',
   templateUrl: './not-found-page.component.html',
   styleUrls: ['./not-found-page.component.scss'],
 })
-export class NotFoundPageComponent {}
+export class NotFoundPageComponent {
+  routes = ROUTES;
+}

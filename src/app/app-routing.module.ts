@@ -14,6 +14,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/home/home.module').then(m => m.HomeModule),
       },
+      {
+        path: ROUTES.userProfile,
+        loadChildren: () =>
+          import('./modules/user-profile/user-profile.module').then(
+            (m) => m.UserProfileModule
+          ),
+      },
     ],
   },
   { path: '', redirectTo: ROUTES.home, pathMatch: 'full' },

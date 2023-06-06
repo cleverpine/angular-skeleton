@@ -12,11 +12,11 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// import { HeaderModule } from '@lht/header';
-// import { SidebarModule } from '@lht/sidebar';
+import { HeaderModule } from 'cp-angular-header';
+import { SidebarModule } from 'cp-angular-sidebar';
 
 import { SharedModule } from '@shared/shared.module';
-import { ApiConfiguration as SAPApiConfiguration } from 'openapi/codegen/project-be-service/api-configuration';
+import { ApiConfiguration as BEApiConfiguration } from 'openapi/codegen/project-be-service/api-configuration';
 import { AppConfigService, PROD } from './services/app-config.service';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -36,21 +36,21 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 export function initializeApp(
   appConfigService: AppConfigService,
-  sapApiConfiguration: SAPApiConfiguration,
+  beApiConfiguration: BEApiConfiguration,
   authService: AuthService,
   translate: TranslateService
 ) {
-  translate.setDefaultLang('en');
-  translate.use('en');
-  return () =>
-    appConfigService.loadConfig().then(() => {
-      sapApiConfiguration.rootUrl = appConfigService.getBasePath();
-      const keycloakUrl = appConfigService.getSsoServerUrl();
-      const keycloakRealm = appConfigService.getSsoServerRealm();
-      const keycloakClientId = appConfigService.getSsoServerClientId();
-      authService.init(keycloakUrl, keycloakClientId, keycloakRealm);
-      authService.login();
-    });
+  return async () => {
+    await appConfigService.loadConfig();
+    beApiConfiguration.rootUrl = appConfigService.getBasePath();
+    const keycloakUrl = appConfigService.getSsoServerUrl();
+    const keycloakRealm = appConfigService.getSsoServerRealm();
+    const keycloakClientId = appConfigService.getSsoServerClientId();
+    authService.init(keycloakUrl, keycloakClientId, keycloakRealm);
+    authService.login();
+    translate.setDefaultLang('en');
+    await translate.use('en').toPromise();
+  }
 }
 
 @NgModule({
@@ -72,8 +72,8 @@ export function initializeApp(
         deps: [HttpClient],
       },
     }),
-    // HeaderModule,
-    // SidebarModule
+    HeaderModule,
+    SidebarModule
   ],
   exports: [
     NotFoundPageComponent,
@@ -85,7 +85,7 @@ export function initializeApp(
       useFactory: initializeApp,
       deps: [
         AppConfigService,
-        SAPApiConfiguration,
+        BEApiConfiguration,
         AuthService,
         TranslateService,
       ],
@@ -99,4 +99,4 @@ export function initializeApp(
     },
   ],
 })
-export class CoreModule {}
+export class CoreModule { }

@@ -1,6 +1,6 @@
 <div class="content" role="main">
-  <!-- <lht-header (toggledSideNav)="toggleSideNav()" [profileName]="profileName" [title]="headerTitle" (logout)="logout()" [isShowingSideNav]="isShowingSideNav"></lht-header>
-  <lht-sidebar [expanded]="isShowingSideNav" (overlayClick)="toggleSideNav()"> -->
+  <lht-header (toggledSideNav)="toggleSideNav()" [profileName]="profileName" [title]="headerTitle" (logout)="logout()" [isShowingSideNav]="isShowingSideNav"></lht-header>
+  <lht-sidebar [expanded]="isShowingSideNav" (overlayClick)="toggleSideNav()">
     <nav nav-items class="side-nav">
       <a
         *ngFor="let item of navItems"
@@ -12,5 +12,5 @@
       </a>
     </nav>
     <router-outlet main-content></router-outlet>
-  <!-- </lht-sidebar> -->
+  </lht-sidebar>
 </div>

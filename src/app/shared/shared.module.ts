@@ -13,9 +13,12 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CardComponent
+  ],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -38,6 +41,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatIconModule,
     MatChipsModule,
     MatAutocompleteModule,
+    CardComponent
   ],
 })
 export class SharedModule {}

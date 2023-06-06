@@ -1,0 +1,18 @@
+@import "../../../../assets/styles/colors.scss";
+
+.e-card {
+  padding: 6px 16px 6px 0;
+  border-radius: 4px;
+  box-shadow: $box-shadow-color 0px 8px 24px;
+  background-color: $white;
+
+  .e-card-header-title {
+    font-size: 1.6rem;
+    color: $main-text-color;
+  }
+
+  .e-card-content {
+    font-size: 1.4rem;
+    color: $main-text-color;
+  }
+}
