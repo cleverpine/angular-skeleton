@@ -29,7 +29,8 @@
     "virava": "^1.3.2",
     "zone.js": "~0.13.0",
     "cp-angular-header": "0.0.1",
-    "cp-angular-sidebar": "0.0.1"
+    "cp-angular-sidebar": "0.0.1",
+    "cp-angular-tile": "0.0.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.0",

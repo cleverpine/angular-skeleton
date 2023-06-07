@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-// import { TileModule } from '@lht/tile';
+import { TileModule } from 'cp-angular-tile';
 import { TranslateModule } from '@ngx-translate/core';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -8,7 +8,7 @@ import { HomeComponent } from './home.component';
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, TranslateModule, HomeRoutingModule,
-    //  TileModule
+     TileModule
     ],
   exports: [HomeComponent],
 })
