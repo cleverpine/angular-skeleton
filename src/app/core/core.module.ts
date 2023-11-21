@@ -12,9 +12,6 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { HeaderModule } from 'cp-angular-header';
-import { SidebarModule } from 'cp-angular-sidebar';
-
 import { SharedModule } from '@shared/shared.module';
 import { ApiConfiguration as BEApiConfiguration } from 'openapi/codegen/project-be-service/api-configuration';
 import { AppConfigService, PROD } from './services/app-config.service';
@@ -72,8 +69,6 @@ export function initializeApp(
         deps: [HttpClient],
       },
     }),
-    HeaderModule,
-    SidebarModule
   ],
   exports: [
     NotFoundPageComponent,

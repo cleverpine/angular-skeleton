@@ -1,22 +1,4 @@
 <div class="home-page">
   <div class="tiles">
-    <lht-tile class="title-wrapper" *ngFor="let tile of tiles" [href]="'/' + tile.route">
-      <ng-container content>
-        <div class="desktop">
-          <div class="icon" [ngClass]="tile.cssClass"></div>
-          <h2 class="title">{{tile.titleFull | translate}}</h2>
-        </div>
-        <div class="mobile-header">
-          <div class="title-wrapper">
-            <span class="material-icons">search</span>
-            <p class="title">{{ tile.titleFull | translate }}</p>
-          </div>
-          <p class="description">{{ tile.description | translate }}</p>
-        </div>
-      </ng-container>
-      <ng-container hover-content>
-        <p class="description">{{ tile.description | translate }}</p>
-      </ng-container>
-    </lht-tile>
   </div>
 </div>

@@ -1,16 +1,2 @@
 <div class="content" role="main">
-  <lht-header (toggledSideNav)="toggleSideNav()" [profileName]="profileName" [title]="headerTitle" (logout)="logout()" [isShowingSideNav]="isShowingSideNav"></lht-header>
-  <lht-sidebar [expanded]="isShowingSideNav" (overlayClick)="toggleSideNav()">
-    <nav nav-items class="side-nav">
-      <a
-        *ngFor="let item of navItems"
-        routerLinkActive="active"
-        [routerLink]="[item.route]"
-        class="nav-item nav-link">
-        <span [ngClass]="item.cssClass"></span>
-        {{ (isShowingSideNav ? item.title : '') | translate }}
-      </a>
-    </nav>
-    <router-outlet main-content></router-outlet>
-  </lht-sidebar>
 </div>
