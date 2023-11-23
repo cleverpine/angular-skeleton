@@ -16,8 +16,5 @@ COPY . .
 # Expose the default React development port
 EXPOSE 4200
 
-# Generate openapi connections
-CMD ["npm", "run", "generate-openapi-connections"]
-
 # Start the React development server
 CMD ["npm", "start"]

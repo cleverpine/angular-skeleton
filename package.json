@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "generate-openapi-connections": "ng-openapi-gen --input ./openapi/project-be-service.yaml --output ./openapi/codegen/project-be-service"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +22,6 @@
     "@angular/router": "^17.0.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
-    "ng-openapi-gen": "^0.51.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
     "virava": "^1.3.2",

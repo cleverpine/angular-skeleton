@@ -13,7 +13,6 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SharedModule } from '@shared/shared.module';
-import { ApiConfiguration as BEApiConfiguration } from 'openapi/codegen/project-be-service/api-configuration';
 import { AppConfigService, PROD } from './services/app-config.service';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -33,13 +32,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 export function initializeApp(
   appConfigService: AppConfigService,
-  beApiConfiguration: BEApiConfiguration,
   authService: AuthService,
   translate: TranslateService
 ) {
   return async () => {
     await appConfigService.loadConfig();
-    beApiConfiguration.rootUrl = appConfigService.getBasePath();
     const keycloakUrl = appConfigService.getSsoServerUrl();
     const keycloakRealm = appConfigService.getSsoServerRealm();
     const keycloakClientId = appConfigService.getSsoServerClientId();
@@ -80,7 +77,6 @@ export function initializeApp(
       useFactory: initializeApp,
       deps: [
         AppConfigService,
-        BEApiConfiguration,
         AuthService,
         TranslateService,
       ],
