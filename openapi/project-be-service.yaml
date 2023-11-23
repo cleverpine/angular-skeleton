@@ -1,0 +1,263 @@
+---
+openapi: 3.0.3
+info:
+  title: sap-data-service API
+  version: 1.0-SNAPSHOT
+paths:
+  /api/job-card:
+    get:
+      tags:
+        - Job Card Controller
+      parameters:
+        - name: salesOrderNo
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobCardDto'
+  /api/material-booking/job-card:
+    get:
+      tags:
+        - Material Booking Controller
+      parameters:
+        - name: maintenanceOrderNo
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: operationNo
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MaterialBookingDto'
+  /api/material-booking/sales-order:
+    get:
+      tags:
+        - Material Booking Controller
+      parameters:
+        - name: salesOrders
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MaterialBookingDto'
+  /api/material-number/part-number:
+    get:
+      tags:
+        - Material Number Controller
+      parameters:
+        - name: cageCode
+          in: query
+          schema:
+            type: string
+        - name: partNumbers
+          in: query
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InternalMaterialNumberRestDto'
+  /api/material-number/sap-number:
+    get:
+      tags:
+        - Material Number Controller
+      parameters:
+        - name: sapMaterialNumbers
+          in: query
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalBatchRestDto'
+  /api/material-stock-information:
+    get:
+      tags:
+        - Material Stock Information Controller
+      parameters:
+        - name: cageCode
+          in: query
+          schema:
+            type: string
+        - name: facilityCode
+          in: query
+          schema:
+            type: string
+        - name: partNumbers
+          in: query
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MaterialStockInformationRestDto'
+  /api/sales-order:
+    get:
+      tags:
+        - Sales Order Controller
+      parameters:
+        - name: plant
+          in: query
+          schema:
+            type: string
+        - name: salesOrderNo
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SalesOrderDto'
+components:
+  schemas:
+    ExternalBatchRestDto:
+      type: object
+      properties:
+        sapMaterialNumber:
+          type: string
+        externalMaterialNumbers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalMaterialNumberRestDto'
+    ExternalMaterialNumberRestDto:
+      type: object
+      properties:
+        partNumber:
+          type: string
+        cageCode:
+          type: string
+    InternalMaterialNumberRestDto:
+      type: object
+      properties:
+        partNumber:
+          type: string
+        sapMaterialNumbers:
+          type: array
+          items:
+            type: string
+    JobCardDto:
+      type: object
+      properties:
+        maintenanceOrderNo:
+          type: string
+        title:
+          type: string
+        jcType:
+          type: string
+        teco:
+          type: string
+    MaterialBookingDto:
+      type: object
+      properties:
+        reservationNumber:
+          type: string
+        maintenanceOrderNumber:
+          type: string
+        operationNumber:
+          type: string
+        requirementDate:
+          type: string
+        requirementType:
+          type: string
+        withdrawnQuantity:
+          format: double
+          type: number
+        internalMaterialNo:
+          type: string
+    MaterialStockInformationRestDto:
+      type: object
+      properties:
+        partNumber:
+          type: string
+        sapMaterialNumbers:
+          type: array
+          items:
+            type: string
+        unrestrictedStock:
+          format: double
+          type: number
+        purchaseOrders:
+          format: double
+          type: number
+        purchaseRequests:
+          format: int32
+          type: integer
+        consignmentStock:
+          format: double
+          type: number
+        reservations:
+          format: int32
+          type: integer
+        totalStock:
+          format: double
+          type: number
+    SalesOrderDto:
+      type: object
+      properties:
+        salesOrderNo:
+          type: string
+        checkType:
+          type: string
+        functionalLocation:
+          type: string
+        plant:
+          type: string
+        acRegistration:
+          type: string
+        referenceNo:
+          type: string
