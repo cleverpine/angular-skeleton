@@ -1,0 +1,67 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "eslint-config-prettier",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "no-continue": 0,
+        "@typescript-eslint/no-unused-expressions": 0,
+        "@typescript-eslint/no-loop-func": 0,
+        "guard-for-in": 0,
+        "no-restricted-syntax": 0,
+        "no-underscore-dangle": 0,
+        "no-return-assign": 0,
+        "import/no-extraneous-dependencies": 0,
+        "no-plusplus": 0,
+        "class-methods-use-this": 0,
+        "prefer-destructuring": 0,
+        "import/prefer-default-export": 0,
+        "no-param-reassign": 0,
+        "@typescript-eslint/naming-convention": 0,
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

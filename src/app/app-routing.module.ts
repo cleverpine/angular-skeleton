@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ROUTES } from './constants/ROUTES';
+import { ROUTES } from './core/constants/routes';
 import { LayoutComponent } from './core/layout/layout.component';
 import { NotFoundPageComponent } from './core/not-found-page/not-found-page.component';
 
@@ -13,13 +13,6 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('./modules/home/home.module').then(m => m.HomeModule),
-      },
-      {
-        path: ROUTES.userProfile,
-        loadChildren: () =>
-          import('./modules/user-profile/user-profile.module').then(
-            (m) => m.UserProfileModule
-          ),
       },
     ],
   },
