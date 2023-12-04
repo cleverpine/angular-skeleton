@@ -1,15 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TileModule } from 'cp-angular-tile';
-import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './pages/home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-
+ 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [CommonModule, TranslateModule, HomeRoutingModule,
-     TileModule
-    ],
-  exports: [HomeComponent],
+    declarations: [HomeComponent],
+    imports: [CommonModule, HomeRoutingModule],
 })
 export class HomeModule {}

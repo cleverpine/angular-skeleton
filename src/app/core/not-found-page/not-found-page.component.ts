@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ROUTES } from '../../constants/ROUTES';
+import { ROUTES } from '../constants/routes';
 
 @Component({
   selector: 'not-found-page',
